@@ -60,11 +60,11 @@ public class Carrera {
             System.out.println();
             System.out.println("VUELTA EXTRA 🏴‍☠️" + vueltasExtra);
 
-            System.out.println("Introduce la velocidad del 🏎 1 (Km/h): ");
+            System.out.println("Introduce la velocidad del 🚗 1 (Km/h): ");
             int velocidad1 = scanner.nextInt();
             coche1.acelerar(velocidad1);
 
-            System.out.println("Introduce la velocidad del 🏎 2 (Km/h): ");
+            System.out.println("Introduce la velocidad del 🚕 2 (Km/h): ");
             int velocidad2 = scanner.nextInt();
             coche2.acelerar(velocidad2);
 
@@ -82,10 +82,10 @@ public class Carrera {
     public void campeon() {
         if (coche1.getKmRecorridos() >= kmTotalesCircuito) {
             campeon = coche1.getModelo();
-            System.out.println("\nEl Campeón es el 🏎" + campeon + " y recorrió 350 km, donde finalizó el GP de Mónaco 🏁🥇🏆🏆🥇🏁");
+            System.out.println("\nEl Campeón es el 🚗" + campeon + " y recorrió 350 km, donde finalizó el GP de Mónaco 🏁🥇🏆🏆🥇🏁");
         } else if (coche2.getKmRecorridos() >= kmTotalesCircuito) {
             campeon = coche2.getModelo();
-            System.out.println("\nEl Campeón es el 🏎" + campeon + " y recorrió 350 km, donde finalizó el GP de Mónaco 🏁🥇🏆🏆🥇🏁");
+            System.out.println("\nEl Campeón es el 🚕" + campeon + " y recorrió 350 km, donde finalizó el GP de Mónaco 🏁🥇🏆🏆🥇🏁");
         }
 
     }
