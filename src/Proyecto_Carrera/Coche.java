@@ -50,28 +50,22 @@ public class Coche {
     }
 
 
-    public void acelerar(int velocidadInicial) {
-        // Calcular la aceleración internamente
-        int aceleracion = calcularAceleracion(velocidadInicial);
-
-        // Sumamos la velocidad inicial con la aceleración calculada
-        int velocidadTotal = velocidadInicial + aceleracion;
-
-        // Calculamos los kilómetros recorridos con la velocidad total
-        double incrementoKm = 0.5 * velocidadTotal;
-        kmRecorridos += incrementoKm;
-
-        // Actualizamos la velocidad del coche con la velocidad total
-        velocidad = Math.max(velocidadTotal, 10);
-    }
-
-
-    private int calcularAceleracion(int aceleracion) {
-        if (cv < 100) {
-            return (int) (Math.random() * aceleracion + 1);
-        } else {
-            return 10 + (int) (Math.random() * aceleracion - 9);
+    public void acelerar() {
+        System.out.println("Cuanto quieres acelerar : ");
+        if (velocidad < 10) {
+            velocidad = 10;
         }
+        int acelerar= scanner.nextInt();
+        if (cv>100) {
+            velocidad += (Math.random() * acelerar) + 10;
+        }else{
+            velocidad+=Math.random()*acelerar;
+        }
+        kmRecorridos=velocidad*0.5;
+
+
+
+
     }
 
 
