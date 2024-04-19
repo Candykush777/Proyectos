@@ -103,7 +103,8 @@ public class Entrada {
                             break;
                     }
                     break;
-                case 2: System.out.println("Selecciona la biblioteca donde quieres construir catálogo:");
+                case 2:
+                    System.out.println("Selecciona la biblioteca donde quieres construir catálogo:");
                     System.out.println("""
                             1. Biblioteca General
                             2. Biblioteca Comedia
@@ -139,8 +140,15 @@ public class Entrada {
                     break;
 
 
-                    break;
                 case 3:
+                    System.out.println("El numero de libros de cada catálogo es : ");
+                    bibliotecaGeneral.numeroLibrosCatalogo();
+                    bibliotecaComedia.numeroLibrosCatalogo();
+                    bibliotecaEnsayo.numeroLibrosCatalogo();
+                    bibliotecaPoliciaca.numeroLibrosCatalogo();
+                    bibliotecaTerror.numeroLibrosCatalogo();
+
+
                     break;
                 case 4:
                     break;

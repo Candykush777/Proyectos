@@ -42,6 +42,14 @@ public  class Biblioteca {
             System.out.println("Error: No se ha construido el catálogo.");
         }
     }
+    public void numeroLibrosCatalogo(){
+        if (catalogo != null) {
+            int numeroLibros = catalogo.getLibros().size();
+            System.out.println("Número de libros en el catálogo: " + numeroLibros);
+        } else {
+            System.out.println("El catálogo no ha sido construido.");
+        }
+    }
 
     public void buscarLibroCatalogo() {
         if (catalogo == null) {
