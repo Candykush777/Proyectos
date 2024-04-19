@@ -2,12 +2,14 @@
 import controller_biblioteca.Biblioteca;
 import model_biblioteca.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Entrada {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ArrayList<Libro> listaLibros = new ArrayList<>();
 
         Biblioteca bibliotecaGeneral = new Biblioteca("All books", "Eduardo Afán");
         Biblioteca bibliotecaComedia = new Biblioteca("Groucho Marx", "Eduardo Afán");
@@ -46,6 +48,29 @@ public class Entrada {
         Ensayo libroEnsayo4 = new Ensayo("El contrato social", "Jean-Jacques Rousseau", 350, "9012E");
         Ensayo libroEnsayo5 = new Ensayo("Sobre la libertad", "John Stuart Mill", 250, "3456E");
 
+        //Voy añadir todos los libros a la listalibros, para poder luego selecionar el que quiera y añadirlos al catalogo.
+        listaLibros.add(libroComedia1);
+        listaLibros.add(libroComedia2);
+        listaLibros.add(libroComedia3);
+        listaLibros.add(libroComedia4);
+        listaLibros.add(libroComedia5);
+        listaLibros.add(libroTerror1);
+        listaLibros.add(libroTerror2);
+        listaLibros.add(libroTerror3);
+        listaLibros.add(libroTerror4);
+        listaLibros.add(libroTerror5);
+        listaLibros.add(libroEnsayo1);
+        listaLibros.add(libroEnsayo2);
+        listaLibros.add(libroEnsayo3);
+        listaLibros.add(libroEnsayo4);
+        listaLibros.add(libroEnsayo5);
+        listaLibros.add(libroPoliciaca1);
+        listaLibros.add(libroPoliciaca2);
+        listaLibros.add(libroPoliciaca3);
+        listaLibros.add(libroPoliciaca4);
+        listaLibros.add(libroPoliciaca5);
+
+
         bibliotecaGeneral.agregarLibro(libroComedia1);
         bibliotecaGeneral.agregarLibro(libroTerror1);
         bibliotecaGeneral.agregarLibro(libroPoliciaca1);
@@ -53,6 +78,10 @@ public class Entrada {
         bibliotecaGeneral.agregarLibro(libroComedia2);
         System.out.println("Libros en el catálogo de la biblioteca general:");
         bibliotecaGeneral.mostrarLibrosEnCatalogo();
+        System.out.println("Lista de libros disponibles:");
+        for (Libro libro : listaLibros) {
+            System.out.println(libro.getTitulo() + " " + libro.getISBN());
+        }
 //como dice el ejercicio añadimos 5 libros, peor cómo el tamaño es 4 nos dice que el catalogo esta lleno y solo imprime los 4 primeros ¡¡
         do {
             System.out.println("""
@@ -142,16 +171,60 @@ public class Entrada {
 
                 case 3:
                     System.out.println("El numero de libros de cada catálogo es : ");
+                    System.out.println();
+                    System.out.println("General : ");
                     bibliotecaGeneral.numeroLibrosCatalogo();
+                    System.out.println("Comedia : ");
                     bibliotecaComedia.numeroLibrosCatalogo();
+                    System.out.println("Ensayo : ");
                     bibliotecaEnsayo.numeroLibrosCatalogo();
+                    System.out.println("Policiaca : ");
                     bibliotecaPoliciaca.numeroLibrosCatalogo();
+                    System.out.println("Terror : ");
                     bibliotecaTerror.numeroLibrosCatalogo();
-
 
                     break;
                 case 4:
+                    System.out.println("Ingresa el ISBN del libro que deseas agregar:");
+                    String isbn = scanner.nextLine();
+
+                    // Buscar el libro en la lista usando el ISBN
+                    Libro libroSeleccionado = null;
+                    for (Libro libro : listaLibros) {
+                        if (libro.getISBN().equals(isbn)) {
+                            libroSeleccionado = libro;
+                            break;
+                        }
+                    }
+                    int opcionLibros= scanner.nextInt();
+                    // Verificar si se encontró el libro
+                    if (libroSeleccionado != null) {
+                        switch (opcionLibros) {
+                            case 1:
+                                bibliotecaGeneral.agregarLibro(libroSeleccionado);
+                                break;
+                            case 2:
+                                bibliotecaComedia.agregarLibro(libroSeleccionado);
+                                break;
+                            case 3:
+                                bibliotecaEnsayo.agregarLibro(libroSeleccionado);
+                                break;
+                            case 4:
+                                bibliotecaPoliciaca.agregarLibro(libroSeleccionado);
+                                break;
+                            case 5:
+                                bibliotecaTerror.agregarLibro(libroSeleccionado);
+                                break;
+                            default:
+                                System.out.println("Opción no válida.");
+                                break;
+                        }
+                    } else {
+                        System.out.println("No se encontró ningún libro con el ISBN ingresado.");
+                    }
                     break;
+
+                break;
                 case 5:
                     break;
                 case 6:

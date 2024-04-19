@@ -18,6 +18,15 @@ public  class Biblioteca {
         this.director = director;
     }
 
+    public void agregarLibro(Libro libro) {
+        if (catalogo != null) {
+            catalogo.agregarLibro(libro);
+        } else {
+            System.out.println("Error: No se ha construido el catálogo.");
+        }
+    }
+
+
     public void construirCatalogo() {
         System.out.println("Introduce el número de libros que se puede guardar en el Catálogo:");
         int tamanoCatalogo = scanner.nextInt();
@@ -35,13 +44,7 @@ public  class Biblioteca {
         }
         this.catalogo = new Catalogo(tamanoCatalogo);
     }
-    public void agregarLibro(Libro libro) {
-        if (catalogo != null) {
-            catalogo.agregarLibro(libro);
-        } else {
-            System.out.println("Error: No se ha construido el catálogo.");
-        }
-    }
+
     public void numeroLibrosCatalogo(){
         if (catalogo != null) {
             int numeroLibros = catalogo.getLibros().size();
