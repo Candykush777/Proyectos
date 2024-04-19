@@ -1,11 +1,6 @@
+
 import controller_biblioteca.Biblioteca;
-import controller_biblioteca.Biblioteca.Catalogo;
-import controller_biblioteca.BibliotecaGeneral;
-import model_biblioteca.Comedia;
-import model_biblioteca.Ensayo;
-import model_biblioteca.Policiaca;
-import model_biblioteca.Terror;
-import model_biblioteca.Libro;
+import model_biblioteca.*;
 
 import java.util.Scanner;
 
@@ -14,14 +9,17 @@ public class Entrada {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-//Los ISBN son ficticios , el formato común es diferente, pero necesito sencillez.
-        BibliotecaGeneral biblioteca = new BibliotecaGeneral("Biblioteca alfa", "Eduardo Afán");
-        // Crear un catálogo con un tamaño especificado por el usuario
-        System.out.println("Vamos a dejar creado el Catalogo, para luego en el menu usar sus funcionalidades ");
-        System.out.println("Introduce el tamaño del catálogo:");
-        int tamanoCatalogo = scanner.nextInt();
-        scanner.nextLine(); // Consumir la nueva línea en el búfer del scanner
-        Catalogo catalogo = biblioteca.new Catalogo(tamanoCatalogo);
+        Biblioteca bibliotecaGeneral = new Biblioteca("All books", "Eduardo Afán");
+        Biblioteca bibliotecaComedia = new Biblioteca("Groucho Marx", "Eduardo Afán");
+        Biblioteca bibliotecaEnsayo = new Biblioteca("Michel de Montaigne", "Eduardo Afán");
+        Biblioteca bibliotecaPoliciaca = new Biblioteca("Agatha Christie", "Eduardo Afán");
+        Biblioteca bibliotecaTerror = new Biblioteca("Stephen King", "Eduardo Afán");
+
+//Contruimos el catalogo de 4 libros cómo dice el ejercicio
+
+        bibliotecaGeneral.construirCatalogo(4);
+
+
         Terror libroTerror1 = new Terror("El Resplandor", "Stephen King", 512, "1234T", "Mayor 18 años");
         Terror libroTerror2 = new Terror("IT", "Stephen King", 1138, "5678T", "Mayor 18 años");
         Terror libroTerror3 = new Terror("El Exorcista", "William Peter Blatty", 385, "9012T", "Mayor 18 años");
@@ -48,47 +46,18 @@ public class Entrada {
         Ensayo libroEnsayo4 = new Ensayo("El contrato social", "Jean-Jacques Rousseau", 350, "9012E");
         Ensayo libroEnsayo5 = new Ensayo("Sobre la libertad", "John Stuart Mill", 250, "3456E");
 
-
-        //Meter todos los libros en la Biblioteca general
-
-        biblioteca.agregarLibroBiblioteca(libroComedia1);
-        biblioteca.agregarLibroBiblioteca(libroComedia2);
-        biblioteca.agregarLibroBiblioteca(libroComedia3);
-        biblioteca.agregarLibroBiblioteca(libroComedia4);
-        biblioteca.agregarLibroBiblioteca(libroComedia5);
-        biblioteca.agregarLibroBiblioteca(libroEnsayo1);
-        biblioteca.agregarLibroBiblioteca(libroEnsayo2);
-        biblioteca.agregarLibroBiblioteca(libroEnsayo3);
-        biblioteca.agregarLibroBiblioteca(libroEnsayo4);
-        biblioteca.agregarLibroBiblioteca(libroEnsayo5);
-        biblioteca.agregarLibroBiblioteca(libroPoliciaca1);
-        biblioteca.agregarLibroBiblioteca(libroPoliciaca2);
-        biblioteca.agregarLibroBiblioteca(libroPoliciaca3);
-        biblioteca.agregarLibroBiblioteca(libroPoliciaca4);
-        biblioteca.agregarLibroBiblioteca(libroPoliciaca5);
-        biblioteca.agregarLibroBiblioteca(libroTerror1);
-        biblioteca.agregarLibroBiblioteca(libroTerror2);
-        biblioteca.agregarLibroBiblioteca(libroTerror3);
-        biblioteca.agregarLibroBiblioteca(libroTerror4);
-        biblioteca.agregarLibroBiblioteca(libroTerror5);
-
-
-
-
-
-        /*Aqui estaba probando si imprimia lso libros de la biblioteca , System.out.println("Lista de libros en la Biblioteca:");
-        System.out.println(Biblioteca.getCatalogo().toString());*/
-//Vamos hacer el menu de la Biblioteca
+        bibliotecaGeneral.agregarLibro(libroComedia1);
+        bibliotecaGeneral.agregarLibro(libroTerror1);
+        bibliotecaGeneral.agregarLibro(libroPoliciaca1);
+        bibliotecaGeneral.agregarLibro(libroEnsayo1);
+        bibliotecaGeneral.agregarLibro(libroComedia2);
+        System.out.println("Libros en el catálogo de la biblioteca general:");
+        bibliotecaGeneral.getCatalogo().mostrarLibros();
 
         do {
             System.out.println("""
-                    1.-Buscar informacion del libro por ISBN en Biblioteca.
-                    2.-Construir Catalogo y buscar información del libro del Catalogo.
-                    3.-Agrega 5 libros al catálogo.
-                    4.-Mostrar los libros del Catálogo.
-                    5.-Agregar libros al cualquier Catálogo.
-                    6.-Sacar libro del Catálogo.
-                    7.-Salir """);
+                    1.-Construir Catalogo
+                    2.-""");
 
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -96,13 +65,11 @@ public class Entrada {
             switch (option) {
 
                 case 1:
-                    biblioteca.buscarLibroPorISBNBiblioteca(scanner.nextLine());
+
                     break;
                 case 2:
 
                     // Verificar si el catálogo ya ha sido construido
-
-
 
 
             }

@@ -7,64 +7,69 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public abstract class Biblioteca {
-
+public  class Biblioteca {
+    Scanner scanner = new Scanner(System.in);
     private String nombre;
     private String director;
-    private ArrayList<Libro> libros;
-
-    public Biblioteca() {
-
-        this.libros = new ArrayList<>();
-    }
+    private Catalogo catalogo;
 
     public Biblioteca(String nombre, String director) {
         this.nombre = nombre;
         this.director = director;
-        this.libros = new ArrayList<>();
     }
 
-    // Agrega un libro directamente a la lista de libros de la biblioteca
-    public void agregarLibroBiblioteca(Libro libro) {
-        libros.add(libro);
-    }
-
-    // Elimina un libro de la lista de libros de la biblioteca
-    public void eliminarLibroBiblioteca(Libro libro) {
-        libros.remove(libro);
-    }
-
-    // Busca un libro por su ISBN en la lista de libros de la biblioteca
-    public Libro buscarLibroPorISBNBiblioteca(String isbn) {
-        for (Libro libro : this.libros) {
-            if (libro.getISBN().equals(isbn)) {
-                return libro;
-            }
-        }
-        // Si no se encuentra el libro
-        System.out.println("No se encontró ningún libro con el ISBN proporcionado en la biblioteca.");
-        return null;
-    }
-
-    public Catalogo construirCatalogo(int tamanoCatalogo, String isbn) {
+    public void construirCatalogo() {
+        System.out.println("Introduce el número de libros que se puede guardar en el Catálogo:");
+        int tamanoCatalogo = scanner.nextInt();
+        scanner.nextLine();
         if (tamanoCatalogo <= 0) {
             System.out.println("Error: El tamaño del catálogo debe ser mayor que cero.");
-            return null;
+            return;
         }
-
-        Catalogo catalogo = new Catalogo(tamanoCatalogo);
-        System.out.println("Catálogo construido con éxito.");
-
-        // Realizar búsqueda del libro por ISBN en el catálogo recién construido, solución salomónica
-        Libro libroEncontrado = catalogo.buscarLibroPorISBNCatalogo(isbn);
-        if (libroEncontrado != null) {
-            System.out.println("Información del libro encontrado en el catálogo:");
-            System.out.println(libroEncontrado.toString());
+        this.catalogo = new Catalogo(tamanoCatalogo);
+    }
+    public void construirCatalogo(int tamanoCatalogo) {
+        if (tamanoCatalogo <= 0) {
+            System.out.println("Error: El tamaño del catálogo debe ser mayor que cero.");
+            return;
+        }
+        this.catalogo = new Catalogo(tamanoCatalogo);
+    }
+    public void agregarLibro(Libro libro) {
+        if (catalogo != null) {
+            catalogo.agregarLibro(libro);
         } else {
-            System.out.println("No se encontró ningún libro con el ISBN proporcionado en el catálogo.");
+            System.out.println("Error: No se ha construido el catálogo.");
         }
+    }
 
-        return catalogo;
+    public void buscarLibroCatalogo() {
+        if (catalogo == null) {
+            System.out.println("Error: El catálogo no ha sido construido.");
+            return;
+        }
+        System.out.println("Introduce ISBN para buscar el libro:");
+        String isbnBuscado = scanner.nextLine();
+        boolean encontrado = false;
+        for (Libro libro : catalogo.getLibros()) {
+            if (libro.getISBN().equals(isbnBuscado)) {
+                System.out.println("Libro encontrado:");
+                System.out.println(libro);
+                encontrado = true;
+                break; // Salir del bucle una vez que se haya encontrado el libro
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Libro no encontrado en el catálogo.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Biblioteca{" +
+                "nombre='" + nombre + '\'' +
+                ", director='" + director + '\'' +
+                '}';
     }
 
     public String getNombre() {
@@ -83,73 +88,41 @@ public abstract class Biblioteca {
         this.director = director;
     }
 
-    public ArrayList<Libro> getLibros() {
-        return libros;
+    public Catalogo getCatalogo() {
+        return catalogo;
     }
 
-    public void setLibros(ArrayList<Libro> libros) {
-        this.libros = libros;
+    public void setCatalogo(Catalogo catalogo) {
+        this.catalogo = catalogo;
     }
 
-
-    public class Catalogo {
-
+    class Catalogo {
         private ArrayList<Libro> libros;
-        private int capacidadMax;
+        private int capacidadMaxima;
 
-        public Catalogo(int capacidadMax) {
+        public Catalogo(int capacidadMaxima) {
             this.libros = new ArrayList<>();
-            this.capacidadMax = capacidadMax;
+            this.capacidadMaxima = capacidadMaxima;
         }
 
         public void agregarLibro(Libro libro) {
-            libros.add(libro);
-        }
-
-        public void eliminarLibro(Libro libro) {
-            libros.remove(libro);
-        }
-
-        public Libro buscarLibroPorISBNCatalogo(String isbn) {
-            for (Libro libro : libros) {
-                if (libro.getISBN().equals(isbn)) {
-                    return libro;
-                }
+            if (libros.size() < capacidadMaxima) {
+                libros.add(libro);
+                System.out.println("Libro agregado al catálogo.");
+            } else {
+                System.out.println("El catálogo está lleno, no se pueden agregar más libros.");
             }
-            return null;
         }
-
-        @Override
-        public String toString() {
-            if (libros.isEmpty()) {
-                return "El catálogo está vacío.";
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("Lista de libros en el catálogo:\n");
-            for (Libro libro : libros) {
-                sb.append(libro.toString()).append("\n");
-            }
-            return sb.toString();
-        }
-
 
         public ArrayList<Libro> getLibros() {
             return libros;
         }
-
-        public void setLibros(ArrayList<Libro> libros) {
-            this.libros = libros;
+        public void mostrarLibros() {
+            System.out.println("Libros en el catálogo:");
+            for (Libro libro : libros) {
+                System.out.println(libro);
+            }
         }
-
-        public int getCapacidadMax() {
-            return capacidadMax;
-        }
-
-        public void setCapacidadMax(int capacidadMax) {
-            this.capacidadMax = capacidadMax;
-        }
-
-
     }
 }
 
