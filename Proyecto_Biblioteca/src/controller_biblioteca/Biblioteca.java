@@ -63,6 +63,13 @@ public  class Biblioteca {
             System.out.println("Libro no encontrado en el catálogo.");
         }
     }
+    public void mostrarLibrosEnCatalogo() {
+        if (catalogo != null) {
+            catalogo.mostrarLibros();
+        } else {
+            System.out.println("Error: El catálogo no ha sido construido.");
+        }
+    }
 
     @Override
     public String toString() {

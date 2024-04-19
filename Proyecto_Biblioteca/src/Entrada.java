@@ -52,12 +52,16 @@ public class Entrada {
         bibliotecaGeneral.agregarLibro(libroEnsayo1);
         bibliotecaGeneral.agregarLibro(libroComedia2);
         System.out.println("Libros en el catálogo de la biblioteca general:");
-        bibliotecaGeneral.getCatalogo().mostrarLibros();
-
+        bibliotecaGeneral.mostrarLibrosEnCatalogo();
+//como dice el ejercicio añadimos 5 libros, peor cómo el tamaño es 4 nos dice que el catalogo esta lleno y solo imprime los 4 primeros ¡¡
         do {
             System.out.println("""
-                    1.-Construir Catalogo
-                    2.-""");
+                    1.-Busca información de un libro del catálogo por isbn.
+                    2.-Construir Catalogo.
+                    3.-Consulta número de libros del catálogo.
+                    4.-Agregar libros al Catálogo.
+                    5.-Sacar libro del Catálogo.
+                    6.-Salir del menú. """);
 
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -65,19 +69,92 @@ public class Entrada {
             switch (option) {
 
                 case 1:
+                    System.out.println("Selecciona la biblioteca donde buscar:");
+                    System.out.println("""
+                            1. Biblioteca General
+                            2. Biblioteca Comedia
+                            3. Biblioteca Ensayo
+                            4. Biblioteca Policiaca
+                            5. BibliotecaTerror
+                            """);
+
+                    int opcionBiblioteca = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (opcionBiblioteca) {
+                        case 1:
+                            bibliotecaGeneral.buscarLibroCatalogo();
+                            break;
+                        case 2:
+                            bibliotecaComedia.buscarLibroCatalogo();
+                            break;
+                        case 3:
+                            bibliotecaEnsayo.buscarLibroCatalogo();
+                            break;
+                        case 4:
+                            bibliotecaPoliciaca.buscarLibroCatalogo();
+                            break;
+                        case 5:
+                            bibliotecaTerror.buscarLibroCatalogo();
+                            break;
+
+                        default:
+                            System.out.println("Opción no válida.");
+                            break;
+                    }
+                    break;
+                case 2: System.out.println("Selecciona la biblioteca donde quieres construir catálogo:");
+                    System.out.println("""
+                            1. Biblioteca General
+                            2. Biblioteca Comedia
+                            3. Biblioteca Ensayo
+                            4. Biblioteca Policiaca
+                            5. BibliotecaTerror
+                            """);
+
+                    int opcionCatálogo = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (opcionCatálogo) {
+                        case 1:
+                            bibliotecaGeneral.construirCatalogo();
+                            break;
+                        case 2:
+                            bibliotecaComedia.construirCatalogo();
+                            break;
+                        case 3:
+                            bibliotecaEnsayo.construirCatalogo();
+                            break;
+                        case 4:
+                            bibliotecaPoliciaca.construirCatalogo();
+                            break;
+                        case 5:
+                            bibliotecaTerror.construirCatalogo();
+                            break;
+
+                        default:
+                            System.out.println("Opción no válida.");
+                            break;
+                    }
+                    break;
+
 
                     break;
-                case 2:
-
-                    // Verificar si el catálogo ya ha sido construido
-
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
 
             }
 
         }
 
 
-        while ();
+        while (!option == 6);
 
     }
 }
