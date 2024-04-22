@@ -11,11 +11,11 @@ public class Entrada {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Libro> listaLibros = new ArrayList<>();
 
-        Biblioteca bibliotecaGeneral = new Biblioteca("All books", "Eduardo Afán","General");
-        Biblioteca bibliotecaComedia = new Biblioteca("Groucho Marx", "Eduardo Afán","Comedia");
-        Biblioteca bibliotecaEnsayo = new Biblioteca("Michel de Montaigne", "Eduardo Afán","Ensayo");
-        Biblioteca bibliotecaPoliciaca = new Biblioteca("Agatha Christie", "Eduardo Afán","Policiaca");
-        Biblioteca bibliotecaTerror = new Biblioteca("Stephen King", "Eduardo Afán","Terror");
+        Biblioteca bibliotecaGeneral = new Biblioteca("All books", "Eduardo Afán", "General");
+        Biblioteca bibliotecaComedia = new Biblioteca("Groucho Marx", "Eduardo Afán", "Comedia");
+        Biblioteca bibliotecaEnsayo = new Biblioteca("Michel de Montaigne", "Eduardo Afán", "Ensayo");
+        Biblioteca bibliotecaPoliciaca = new Biblioteca("Agatha Christie", "Eduardo Afán", "Policiaca");
+        Biblioteca bibliotecaTerror = new Biblioteca("Stephen King", "Eduardo Afán", "Terror");
 
 //Contruimos el catalogo de 4 libros cómo dice el ejercicio
 
@@ -78,7 +78,7 @@ public class Entrada {
             bibliotecaGeneral.agregarLibro(libroEnsayo1);
             bibliotecaGeneral.agregarLibro(libroComedia2);
         } catch (CatalogoLlenoException e) {
-            System.out.println(e.getMessage()); // Imprimir mensaje de la excepción
+            System.out.println(e.getMessage());
         }
         System.out.println("Libros en el catálogo de la biblioteca general:");
         bibliotecaGeneral.mostrarLibrosEnCatalogo();
@@ -224,12 +224,12 @@ public class Entrada {
                             if (libroSeleccionado != null) {
                                 System.out.println("Selecciona la biblioteca donde quieres agregar el libro:");
                                 System.out.println("""
-        1. Biblioteca General
-        2. Biblioteca Comedia
-        3. Biblioteca Ensayo
-        4. Biblioteca Policiaca
-        5. Biblioteca Terror
-        """);
+                                        1. Biblioteca General
+                                        2. Biblioteca Comedia
+                                        3. Biblioteca Ensayo
+                                        4. Biblioteca Policiaca
+                                        5. Biblioteca Terror
+                                        """);
 
                                 int opcionLibros = scanner.nextInt();
                                 scanner.nextLine(); // Consumir la nueva línea después del próximo entero
@@ -276,12 +276,12 @@ public class Entrada {
                 case 5:
                     System.out.println("Selecciona la biblioteca de la que deseas sacar el libro:");
                     System.out.println("""
-            1. Biblioteca General
-            2. Biblioteca Comedia
-            3. Biblioteca Ensayo
-            4. Biblioteca Policiaca
-            5. Biblioteca Terror
-            """);
+                            1. Biblioteca General
+                            2. Biblioteca Comedia
+                            3. Biblioteca Ensayo
+                            4. Biblioteca Policiaca
+                            5. Biblioteca Terror
+                            """);
                     int opcionBibliotecaSacar = scanner.nextInt();
                     scanner.nextLine();
 
