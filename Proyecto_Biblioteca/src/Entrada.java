@@ -7,32 +7,32 @@ import java.util.Scanner;
 
 public class Entrada {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CatalogoLlenoException, LibroNoencontradoException {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Libro> listaLibros = new ArrayList<>();
 
-        Biblioteca bibliotecaGeneral = new Biblioteca("All books", "Eduardo Afán");
-        Biblioteca bibliotecaComedia = new Biblioteca("Groucho Marx", "Eduardo Afán");
-        Biblioteca bibliotecaEnsayo = new Biblioteca("Michel de Montaigne", "Eduardo Afán");
-        Biblioteca bibliotecaPoliciaca = new Biblioteca("Agatha Christie", "Eduardo Afán");
-        Biblioteca bibliotecaTerror = new Biblioteca("Stephen King", "Eduardo Afán");
+        Biblioteca bibliotecaGeneral = new Biblioteca("All books", "Eduardo Afán","General");
+        Biblioteca bibliotecaComedia = new Biblioteca("Groucho Marx", "Eduardo Afán","Comedia");
+        Biblioteca bibliotecaEnsayo = new Biblioteca("Michel de Montaigne", "Eduardo Afán","Ensayo");
+        Biblioteca bibliotecaPoliciaca = new Biblioteca("Agatha Christie", "Eduardo Afán","Policiaca");
+        Biblioteca bibliotecaTerror = new Biblioteca("Stephen King", "Eduardo Afán","Terror");
 
 //Contruimos el catalogo de 4 libros cómo dice el ejercicio
 
         bibliotecaGeneral.construirCatalogo(4);
 
 
-        Terror libroTerror1 = new Terror("El Resplandor", "Stephen King", 512, "1234T", "Mayor 18 años");
-        Terror libroTerror2 = new Terror("IT", "Stephen King", 1138, "5678T", "Mayor 18 años");
-        Terror libroTerror3 = new Terror("El Exorcista", "William Peter Blatty", 385, "9012T", "Mayor 18 años");
-        Terror libroTerror4 = new Terror("Carrie", "Stephen King", 253, "3456T", "Mayor 18 años");
-        Terror libroTerror5 = new Terror("La Casa de los Espíritus", "Isabel Allende", 433, "7890T", "Mayor 18 años");
-        Comedia libroComedia1 = new Comedia("En nombre del viento", "Patrick Rothfuss", 662, "2345C", "Irónico");
-        Comedia libroComedia2 = new Comedia("El asombroso viaje de Pomponio Flato", "Eduardo Mendoza", 240, "2345C", "Absurdo");
-        Comedia libroComedia3 = new Comedia("Los hombres que no amaban a las mujeres", "Stieg Larsson", 654, "4567C", "Negro");
-        Comedia libroComedia4 = new Comedia("Los hombres que no amaban a las mujeres", "Stieg Larsson", 654, "4567C", "Negro");
-        Comedia libroComedia5 = new Comedia("La conjura de los necios", "John Kennedy Toole", 394, "8901C", "Satírico");
-        Policiaca libroPoliciaca1 = new Policiaca("Confinado", "Federico Gatti", 320, "4567P",
+        Terror libroTerror1 = new Terror("La Sombra del Viento", "Carlos Ruiz Zafón", 512, "1234T", "Mayor 18 años");
+        Terror libroTerror2 = new Terror("El Laberinto de los Espíritus", "Carlos Ruiz Zafón", 1138, "5678T", "Mayor 18 años");
+        Terror libroTerror3 = new Terror("La Catedral del Mar", "Ildefonso Falcones", 385, "9012T", "Mayor 18 años");
+        Terror libroTerror4 = new Terror("La Casa de los Espíritus", "Isabel Allende", 253, "3456T", "Mayor 18 años");
+        Terror libroTerror5 = new Terror("El Laberinto del Fauno", "Guillermo del Toro", 433, "7890T", "Mayor 18 años");
+        Comedia libroComedia1 = new Comedia("La Colmena", "Camilo José Cela", 662, "2345C", "Irónico");
+        Comedia libroComedia2 = new Comedia("Los Juegos del Hambre", "Suzanne Collins", 240, "2345C", "Absurdo");
+        Comedia libroComedia3 = new Comedia("El Juego de Ender", "Orson Scott Card", 654, "4567C", "Negro");
+        Comedia libroComedia4 = new Comedia("El Silmarillion", "J.R.R. Tolkien", 654, "4567C", "Negro");
+        Comedia libroComedia5 = new Comedia("La Vida del Lazarillo de Tormes y de sus Fortunas y Adversidades", "Anónimo", 394, "8901C", "Satírico");
+        Policiaca libroPoliciaca1 = new Policiaca("La Sombra del Viento", "Carlos Ruiz Zafón", 320, "4567P",
                 "Espacio confinado", new String[]{"Detective John Smith", "Inspector Julia Johnson", "Sospechoso Richard Black"});
         Policiaca libroPoliciaca2 = new Policiaca("El Silencio de los Corderos", "Thomas Harris", 368, "1234P",
                 "Asesinato en serie", new String[]{"Psicópata asesino: Hannibal Lecter, Agente del FBI: Clarice Starling, Víctima: Buffalo Bill"});
@@ -42,11 +42,11 @@ public class Entrada {
                 "Crimen a bordo", new String[]{"Detective Privado: Hércules Poirot, Socialite: Linnet Ridgeway, Enamorada Obsesiva: Jacqueline de Bellefort"});
         Policiaca libroPoliciaca5 = new Policiaca("El Halcón Maltés", "Dashiell Hammett", 224, "5678P",
                 "Busqueda objeto valioso", new String[]{"Detective Privado Cínico: Sam Spade, Mujer Fatal: Brigid O'Shaughnessy, Estafador: Joel Cairo"});
-        Ensayo libroEnsayo1 = new Ensayo("Ensayo sobre el entendimiento humano", "John Locke", 300, "6767E");
-        Ensayo libroEnsayo2 = new Ensayo("Crítica de la razón pura", "Immanuel Kant", 400, "1234E");
-        Ensayo libroEnsayo3 = new Ensayo("La riqueza de las naciones", "Adam Smith", 700, "5678E");
-        Ensayo libroEnsayo4 = new Ensayo("El contrato social", "Jean-Jacques Rousseau", 350, "9012E");
-        Ensayo libroEnsayo5 = new Ensayo("Sobre la libertad", "John Stuart Mill", 250, "3456E");
+        Ensayo libroEnsayo1 = new Ensayo("El Quijote", "Miguel de Cervantes", 300, "6767E");
+        Ensayo libroEnsayo2 = new Ensayo("La Celestina", "Fernando de Rojas", 400, "1234E");
+        Ensayo libroEnsayo3 = new Ensayo("La Regenta", "Leopoldo Alas Clarín", 700, "5678E");
+        Ensayo libroEnsayo4 = new Ensayo("El Conde Lucanor", "Don Juan Manuel", 350, "9012E");
+        Ensayo libroEnsayo5 = new Ensayo("El Arte de la Guerra", "Sun Tzu", 250, "3456E");
 
         //Voy añadir todos los libros a la listalibros, para poder luego selecionar el que quiera y añadirlos al catalogo.
         listaLibros.add(libroComedia1);
@@ -71,18 +71,24 @@ public class Entrada {
         listaLibros.add(libroPoliciaca5);
 
 
-        bibliotecaGeneral.agregarLibro(libroComedia1);
-        bibliotecaGeneral.agregarLibro(libroTerror1);
-        bibliotecaGeneral.agregarLibro(libroPoliciaca1);
-        bibliotecaGeneral.agregarLibro(libroEnsayo1);
-        bibliotecaGeneral.agregarLibro(libroComedia2);
+        try {
+            bibliotecaGeneral.agregarLibro(libroComedia1);
+            bibliotecaGeneral.agregarLibro(libroTerror1);
+            bibliotecaGeneral.agregarLibro(libroPoliciaca1);
+            bibliotecaGeneral.agregarLibro(libroEnsayo1);
+            bibliotecaGeneral.agregarLibro(libroComedia2);
+        } catch (CatalogoLlenoException e) {
+            System.out.println(e.getMessage()); // Imprimir mensaje de la excepción
+        }
         System.out.println("Libros en el catálogo de la biblioteca general:");
         bibliotecaGeneral.mostrarLibrosEnCatalogo();
         System.out.println("Lista de libros disponibles:");
         for (Libro libro : listaLibros) {
             System.out.println(libro.getTitulo() + " " + libro.getISBN());
         }
+        System.out.println("------------------------------------------------------------");
 //como dice el ejercicio añadimos 5 libros, peor cómo el tamaño es 4 nos dice que el catalogo esta lleno y solo imprime los 4 primeros ¡¡
+        int option;
         do {
             System.out.println("""
                     1.-Busca información de un libro del catálogo por isbn.
@@ -91,8 +97,7 @@ public class Entrada {
                     4.-Agregar libros al Catálogo.
                     5.-Sacar libro del Catálogo.
                     6.-Salir del menú. """);
-
-            int option = scanner.nextInt();
+            option = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Introduce ISBN requerido : ");
             switch (option) {
@@ -148,6 +153,22 @@ public class Entrada {
                     switch (opcionCatálogo) {
                         case 1:
                             bibliotecaGeneral.construirCatalogo();
+                            System.out.println("Introduce el ISBN del libro que deseas agregar:");
+                            String isbn = scanner.nextLine();
+
+
+                            Libro libroSeleccionado = null;
+                            for (Libro libro : listaLibros) {
+                                if (libro.getISBN().equals(isbn)) {
+                                    libroSeleccionado = libro;
+                                    break;
+                                }
+                            }
+                            if (libroSeleccionado != null) {
+                                bibliotecaGeneral.agregarLibro(libroSeleccionado);
+                            } else {
+                                System.out.println("No se encontró ningún libro con el ISBN ingresado.");
+                            }
                             break;
                         case 2:
                             bibliotecaComedia.construirCatalogo();
@@ -185,57 +206,122 @@ public class Entrada {
 
                     break;
                 case 4:
-                    System.out.println("Ingresa el ISBN del libro que deseas agregar:");
-                    String isbn = scanner.nextLine();
+                    do {
+                        try {
+                            System.out.println("Ingresa el ISBN del libro que deseas agregar:");
+                            String isbn = scanner.nextLine();
 
-                    // Buscar el libro en la lista usando el ISBN
-                    Libro libroSeleccionado = null;
-                    for (Libro libro : listaLibros) {
-                        if (libro.getISBN().equals(isbn)) {
-                            libroSeleccionado = libro;
-                            break;
+                            // Buscar el libro en la lista usando el ISBN
+                            Libro libroSeleccionado = null;
+                            for (Libro libro : listaLibros) {
+                                if (libro.getISBN().equals(isbn)) {
+                                    libroSeleccionado = libro;
+                                    break;
+                                }
+                            }
+
+                            // Verificar si se encontró el libro
+                            if (libroSeleccionado != null) {
+                                System.out.println("Selecciona la biblioteca donde quieres agregar el libro:");
+                                System.out.println("""
+        1. Biblioteca General
+        2. Biblioteca Comedia
+        3. Biblioteca Ensayo
+        4. Biblioteca Policiaca
+        5. Biblioteca Terror
+        """);
+
+                                int opcionLibros = scanner.nextInt();
+                                scanner.nextLine(); // Consumir la nueva línea después del próximo entero
+
+                                // Agregar el libro a la biblioteca seleccionada
+                                switch (opcionLibros) {
+                                    case 1:
+                                        bibliotecaGeneral.agregarLibro(libroSeleccionado);
+                                        break;
+                                    case 2:
+                                        bibliotecaComedia.agregarLibro(libroSeleccionado);
+                                        break;
+                                    case 3:
+                                        bibliotecaEnsayo.agregarLibro(libroSeleccionado);
+                                        break;
+                                    case 4:
+                                        bibliotecaPoliciaca.agregarLibro(libroSeleccionado);
+                                        break;
+                                    case 5:
+                                        bibliotecaTerror.agregarLibro(libroSeleccionado);
+                                        break;
+                                    default:
+                                        System.out.println("Opción no válida.");
+                                        break;
+                                }
+
+                                System.out.println("¿Deseas agregar otro libro? (S/N)");
+                                String continuar = scanner.nextLine();
+                                if (!continuar.equalsIgnoreCase("S")) {
+                                    break; // Salir del bucle si el usuario no desea agregar más libros
+                                }
+                            } else {
+                                System.out.println("No se encontró ningún libro con el ISBN ingresado.");
+                                break; // Salir del bucle si no se encontró el libro
+                            }
+                        } catch (CatalogoLlenoException e) {
+                            System.out.println(e.getMessage());
+                            break; // Salir del bucle si el catálogo está lleno
                         }
-                    }
-                    int opcionLibros= scanner.nextInt();
-                    // Verificar si se encontró el libro
-                    if (libroSeleccionado != null) {
-                        switch (opcionLibros) {
-                            case 1:
-                                bibliotecaGeneral.agregarLibro(libroSeleccionado);
-                                break;
-                            case 2:
-                                bibliotecaComedia.agregarLibro(libroSeleccionado);
-                                break;
-                            case 3:
-                                bibliotecaEnsayo.agregarLibro(libroSeleccionado);
-                                break;
-                            case 4:
-                                bibliotecaPoliciaca.agregarLibro(libroSeleccionado);
-                                break;
-                            case 5:
-                                bibliotecaTerror.agregarLibro(libroSeleccionado);
-                                break;
-                            default:
-                                System.out.println("Opción no válida.");
-                                break;
-                        }
-                    } else {
-                        System.out.println("No se encontró ningún libro con el ISBN ingresado.");
-                    }
+                    } while (true);
                     break;
 
-                break;
+
                 case 5:
+                    System.out.println("Selecciona la biblioteca de la que deseas sacar el libro:");
+                    System.out.println("""
+            1. Biblioteca General
+            2. Biblioteca Comedia
+            3. Biblioteca Ensayo
+            4. Biblioteca Policiaca
+            5. Biblioteca Terror
+            """);
+                    int opcionBibliotecaSacar = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (opcionBibliotecaSacar) {
+                        case 1:
+                            System.out.println("Introduce el ISBN del libro que deseas sacar del catálogo de la Biblioteca General:");
+                            String isbnSacarGeneral = scanner.nextLine();
+                            bibliotecaGeneral.sacarLibroDelCatalogo(isbnSacarGeneral);
+                            break;
+                        case 2:
+                            System.out.println("Introduce el ISBN del libro que deseas sacar del catálogo de la Biblioteca General:");
+                            String isbnSacarGeneral1 = scanner.nextLine();
+                            bibliotecaGeneral.sacarLibroDelCatalogo(isbnSacarGeneral1);
+
+                            break;
+                        case 3:
+                            System.out.println("Introduce el ISBN del libro que deseas sacar del catálogo de la Biblioteca General:");
+                            String isbnSacarGeneral2 = scanner.nextLine();
+                            bibliotecaGeneral.sacarLibroDelCatalogo(isbnSacarGeneral2);
+                            break;
+                        case 4:
+                            System.out.println("Introduce el ISBN del libro que deseas sacar del catálogo de la Biblioteca General:");
+                            String isbnSacarGeneral3 = scanner.nextLine();
+                            bibliotecaGeneral.sacarLibroDelCatalogo(isbnSacarGeneral3);
+                            break;
+                        case 5:
+                            System.out.println("Introduce el ISBN del libro que deseas sacar del catálogo de la Biblioteca General:");
+                            String isbnSacarGeneral4 = scanner.nextLine();
+                            bibliotecaGeneral.sacarLibroDelCatalogo(isbnSacarGeneral4);
+                            break;
+                        default:
+                            System.out.println("Opción no válida.");
+                            break;
+                    }
                     break;
-                case 6:
-                    break;
+
 
             }
+        } while (option != 6);
 
-        }
-
-
-        while (!option == 6);
 
     }
 }
