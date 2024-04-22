@@ -88,7 +88,7 @@ public  class Biblioteca {
             objectOut.writeObject(catalogo.getLibros());
             System.out.println("Libros exportados correctamente al archivo: " + nombreArchivo);
         } catch (IOException e) {
-            System.err.println("Error al exportar los libros: " + e.getMessage());
+            System.out.println("Error al exportar los libros: " + e.getMessage());
             e.printStackTrace();
         }
     }
