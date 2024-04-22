@@ -1,7 +1,9 @@
 package model_biblioteca;
 
 
-public class Comedia extends Libro{
+import java.io.Serializable;
+
+public class Comedia extends Libro {
 
     private String tipohumor;
 

@@ -80,6 +80,7 @@ public class Entrada {
         } catch (CatalogoLlenoException e) {
             System.out.println(e.getMessage());
         }
+        bibliotecaGeneral.exportarLibros("/resources/libros.obj");
         System.out.println("Libros en el catálogo de la biblioteca general:");
         bibliotecaGeneral.mostrarLibrosEnCatalogo();
         System.out.println("Lista de libros disponibles:");

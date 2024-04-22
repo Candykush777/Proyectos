@@ -2,9 +2,12 @@ package controller_biblioteca;
 
 
 import model_biblioteca.CatalogoLlenoException;
+import model_biblioteca.CatalogoNoConstruidoException;
 import model_biblioteca.Libro;
 import model_biblioteca.LibroNoencontradoException;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,7 +29,7 @@ public  class Biblioteca {
     }
 
     public void agregarLibro(Libro libro) throws CatalogoLlenoException {
-        // Verificar si el catálogo está construido
+
         if (catalogo == null) {
             System.out.println("Error: No se ha construido el catálogo para esta biblioteca.");
             return;
@@ -46,11 +49,11 @@ public  class Biblioteca {
                 tematicaLibro = "Policiaca";
             } else {
                 System.out.println("Error: ISBN no válido para determinar la temática del libro.");
-                return; // Salir del método si el ISBN no es válido
+                return;
             }
         }
 
-        // Comprobar si la temática del libro coincide con la temática de la biblioteca
+
         if (!this.nombre.equals("All books") && !this.tematica.equalsIgnoreCase(tematicaLibro)) {
             System.out.println("Error: El libro no pertenece a esta biblioteca.");
             return;
@@ -66,8 +69,29 @@ public  class Biblioteca {
 
 
 
+    public void verificarCatalogoConstruido() {
+        if (catalogo == null) {
+            throw new CatalogoNoConstruidoException("El catálogo no ha sido construido, Runtime");
+        }
+    }
+    public void exportarLibros(String nombreArchivo) {
+        if (catalogo == null) {
+            System.out.println("Error: El catálogo no ha sido construido.");
+            return;
+        }
 
+        try (FileOutputStream fileOut = new FileOutputStream(nombreArchivo);
+             BufferedOutputStream bufferedOut = new BufferedOutputStream(fileOut);
+             ObjectOutputStream objectOut = new ObjectOutputStream(bufferedOut);
+             OutputStreamWriter writer = new OutputStreamWriter(bufferedOut, StandardCharsets.UTF_8)) {
 
+            objectOut.writeObject(catalogo.getLibros());
+            System.out.println("Libros exportados correctamente al archivo: " + nombreArchivo);
+        } catch (IOException e) {
+            System.err.println("Error al exportar los libros: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     public void construirCatalogo() {
         System.out.println("Introduce el número de libros que se puede guardar en el Catálogo:");

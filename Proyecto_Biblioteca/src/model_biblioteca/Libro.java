@@ -1,7 +1,9 @@
 package model_biblioteca;
 
 
-public abstract class Libro {
+import java.io.Serializable;
+
+public abstract class Libro implements Serializable {
     private String titulo;
     private String autor;
     private int numeroPaginas;
@@ -20,7 +22,8 @@ public abstract class Libro {
     @Override
     public String toString() {
         return "Libro{" +
-                "autor='" + autor + '\'' +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
                 ", numeroPaginas=" + numeroPaginas +
                 ", ISBN='" + ISBN + '\'' +
                 '}';

@@ -1,7 +1,9 @@
 package model_biblioteca;
 
 
-public class Ensayo extends Libro{
+import java.io.Serializable;
+
+public class Ensayo extends Libro  {
 
     public Ensayo() {
     }
