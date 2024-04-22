@@ -18,6 +18,7 @@ public  class Biblioteca {
     private String director;
     private Catalogo catalogo;
     private String tematica;
+    private static final long serialVersionUID = 1231243242342l;
 
     public Biblioteca() {
     }
@@ -76,7 +77,7 @@ public  class Biblioteca {
     }
     public void exportarLibros(String nombreArchivo) {
         if (catalogo == null) {
-            System.out.println("Error: El catálogo no ha sido construido.");
+            System.err.println("Error: El catálogo no ha sido construido.");
             return;
         }
 
@@ -88,7 +89,7 @@ public  class Biblioteca {
             objectOut.writeObject(catalogo.getLibros());
             System.out.println("Libros exportados correctamente al archivo: " + nombreArchivo);
         } catch (IOException e) {
-            System.out.println("Error al exportar los libros: " + e.getMessage());
+            System.err.println("Error al exportar los libros: " + e.getMessage());
             e.printStackTrace();
         }
     }
