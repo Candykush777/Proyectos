@@ -13,6 +13,7 @@ public class Comedia extends Libro {
     public Comedia(String titulo, String autor, int numeroPaginas, String ISBN, String tipohumor) {
         super(titulo, autor, numeroPaginas, ISBN);
         this.tipohumor = tipohumor;
+
     }
 
     @Override
@@ -21,6 +22,8 @@ public class Comedia extends Libro {
                 "tipohumor='" + tipohumor + '\'' +
                 '}';
     }
+
+
 
     public String getTipohumor() {
         return tipohumor;
