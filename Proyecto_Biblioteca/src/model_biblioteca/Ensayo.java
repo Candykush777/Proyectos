@@ -3,7 +3,7 @@ package model_biblioteca;
 
 import java.io.Serializable;
 
-public class Ensayo extends Libro  {
+public class Ensayo extends Libro {
 
     public Ensayo() {
     }

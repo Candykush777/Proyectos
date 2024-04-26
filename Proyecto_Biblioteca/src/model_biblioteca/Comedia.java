@@ -18,11 +18,10 @@ public class Comedia extends Libro {
 
     @Override
     public String toString() {
-        return "Libro Comedia{" +super.toString()+
+        return "Libro Comedia{" + super.toString() +
                 "tipohumor='" + tipohumor + '\'' +
                 '}';
     }
-
 
 
     public String getTipohumor() {

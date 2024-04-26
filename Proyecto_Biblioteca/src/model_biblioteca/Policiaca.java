@@ -1,7 +1,6 @@
 package model_biblioteca;
 
 
-
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -9,7 +8,7 @@ import java.util.Arrays;
 public class Policiaca extends Libro {
 
     private String trama;
-    private String [] personajes;
+    private String[] personajes;
 
     public Policiaca() {
     }
@@ -22,7 +21,7 @@ public class Policiaca extends Libro {
 
     @Override
     public String toString() {
-        return "Libro Policiaca{" + super.toString()+
+        return "Libro Policiaca{" + super.toString() +
                 "trama='" + trama + '\'' +
                 ", personajes=" + Arrays.toString(personajes) +
                 '}';

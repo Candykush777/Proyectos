@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public  class Biblioteca {
+public class Biblioteca {
     Scanner scanner = new Scanner(System.in);
     private String nombre;
     private String director;
@@ -69,12 +69,12 @@ public  class Biblioteca {
     }
 
 
-
     public void verificarCatalogoConstruido() {
         if (catalogo == null) {
             throw new CatalogoNoConstruidoException("El catálogo no ha sido construido, Runtime");
         }
     }
+
     public void exportarLibros(String nombreArchivo) {
         if (catalogo == null) {
             System.err.println("Error: El catálogo no ha sido construido.");
@@ -104,6 +104,7 @@ public  class Biblioteca {
         }
         this.catalogo = new Catalogo(tamanoCatalogo);
     }
+
     public void construirCatalogo(int tamanoCatalogo) {
         if (tamanoCatalogo <= 0) {
             System.out.println("Error: El tamaño del catálogo debe ser mayor que cero.");
@@ -112,7 +113,7 @@ public  class Biblioteca {
         this.catalogo = new Catalogo(tamanoCatalogo);
     }
 
-    public void numeroLibrosCatalogo(){
+    public void numeroLibrosCatalogo() {
         if (catalogo != null) {
             int numeroLibros = catalogo.getLibros().size();
             System.out.println("Número de libros en el catálogo: " + numeroLibros);
@@ -129,6 +130,7 @@ public  class Biblioteca {
             System.out.println("El catálogo no ha sido construido.");
         }
     }
+
     public void mostrarLibrosEnCatalogo() {
         if (catalogo != null) {
             catalogo.mostrarLibros();
@@ -136,6 +138,7 @@ public  class Biblioteca {
             System.out.println("Error: El catálogo no ha sido construido.");
         }
     }
+
     public void buscarLibroCatalogo() {
         if (catalogo == null) {
             System.out.println("Error: El catálogo no ha sido construido.");
@@ -221,12 +224,14 @@ public  class Biblioteca {
         public ArrayList<Libro> getLibros() {
             return libros;
         }
+
         public void mostrarLibros() {
             System.out.println("Libros en el catálogo:");
             for (Libro libro : libros) {
                 System.out.println(libro);
             }
         }
+
         public void sacarLibro(String isbn) {
             for (Libro libro : libros) {
                 if (libro.getISBN().equals(isbn)) {

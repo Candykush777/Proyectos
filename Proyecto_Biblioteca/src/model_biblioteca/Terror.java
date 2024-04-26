@@ -3,7 +3,7 @@ package model_biblioteca;
 
 import java.io.Serializable;
 
-public class Terror extends Libro  {
+public class Terror extends Libro {
 
     private String calificacion;
 

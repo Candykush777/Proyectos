@@ -28,7 +28,7 @@ public class Entrada {
         Terror libroTerror4 = new Terror("La Casa de los Espíritus", "Isabel Allende", 253, "3456T", "Mayor 18 años");
         Terror libroTerror5 = new Terror("El Laberinto del Fauno", "Guillermo del Toro", 433, "7890T", "Mayor 18 años");
         Comedia libroComedia1 = new Comedia("La Colmena", "Camilo José Cela", 662, "2345C", "Irónico");
-        Comedia libroComedia2 = new Comedia("Los Juegos del Hambre", "Suzanne Collins", 240, "2345C", "Absurdo");
+        Comedia libroComedia2 = new Comedia("Los Juegos del Hambre", "Suzanne Collins", 240, "2346C", "Absurdo");
         Comedia libroComedia3 = new Comedia("El Juego de Ender", "Orson Scott Card", 654, "4567C", "Negro");
         Comedia libroComedia4 = new Comedia("El Silmarillion", "J.R.R. Tolkien", 654, "4567C", "Negro");
         Comedia libroComedia5 = new Comedia("La Vida del Lazarillo de Tormes y de sus Fortunas y Adversidades", "Anónimo", 394, "8901C", "Satírico");
